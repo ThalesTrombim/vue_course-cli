@@ -7,6 +7,7 @@
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
+    <button @click='$emit("delete", id)'>Delete</button>
   </li>
 </template>
 
@@ -19,6 +20,7 @@
       emailAddress: {type: String, required: true},
       isFavorite: {type: Boolean, required: true}
     },
+    emits: ['toggle-favorite'],
     data() {
       return {
         detailsAreVisible: false,
@@ -30,7 +32,7 @@
       },
       toggleFavorite() {
         this.$emit('toggle-favorite', this.id)
-      }
+      },
     }
   }
 </script>
